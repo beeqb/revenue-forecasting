@@ -10,7 +10,7 @@ suppress_Warnings()
 #Clear Resultset
 dbClearResult(dbListResults(comdb)[[1]])
 #establish connection to ComTrak
-comdb = dbConnect(MySQL(), user='tganka', password='tganka_123!', dbname='comtrak', host='172.16.122.33')
+comdb = dbConnect(MySQL(), user='***', password='***!', dbname='***', host='***')
 #Cohort Spread
 db.co = dbSendQuery(comdb, "
                     SELECT
@@ -76,7 +76,7 @@ for (i in 1:length(cohort.dt)){
   co_forecast$yhat <- exp(forecast$yhat)
   co_forecast <- data.frame(co_forecast$ds, cohort.dt[i], co_forecast$yhat)
   colnames(co_forecast) <- c("ds", "cohort", "f_spr_ttl")
-  uat02comdb = dbConnect(MySQL(), user='tganka', password='tganka_123!', dbname='comtrak', host='172.16.125.33')
+  uat02comdb = dbConnect(MySQL(), user='***', password='***!', dbname='***', host='***')
   dbWriteTable(uat02comdb, "forecast_co_spr_tbl", value=co_forecast, row.name=FALSE, overwrite=FALSE, append=TRUE)
   dbDisconnect(uat02comdb) 
   }else
@@ -92,7 +92,7 @@ for (i in 1:length(cohort.dt)){
       co_forecast$yhat <- exp(forecast$yhat)
       co_forecast <- data.frame(co_forecast$ds, cohort.dt[i], co_forecast$yhat)
       colnames(co_forecast) <- c("ds", "cohort", "f_spr_ttl")
-      uat02comdb = dbConnect(MySQL(), user='tganka', password='tganka_123!', dbname='comtrak', host='172.16.125.33')
+      uat02comdb = dbConnect(MySQL(), user='***', password='***!', dbname='***', host='***')
       dbWriteTable(uat02comdb, "forecast_co_spr_tbl", value=co_forecast, row.name=FALSE, overwrite=FALSE, append=TRUE)
       dbDisconnect(uat02comdb) 
     }
